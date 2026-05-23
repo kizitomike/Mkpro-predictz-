@@ -14,8 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
 
 <style>
 
@@ -125,9 +124,7 @@ color:white;
 
 .hero{
 height:100vh;
-background:
-linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,0,0,0.8)),
-url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200') center/cover;
+background: linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -236,6 +233,9 @@ padding:40px 20px;
 margin-top:-70px;
 position:relative;
 z-index:2;
+max-width:1200px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .stat-box{
@@ -335,12 +335,8 @@ box-shadow:0 0 10px rgba(255,51,51,0.5);
 }
 
 @keyframes blink{
-0%, 100% {
-opacity:1;
-}
-50% {
-opacity:0.6;
-}
+0%, 100% { opacity:1; }
+50% { opacity:0.6; }
 }
 
 .teams{
@@ -476,11 +472,12 @@ cursor:pointer;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px;
+padding:15px 20px;
 background:rgba(16,38,61,0.9);
 border-radius:10px;
 transition:0.3s;
 border:1px solid rgba(0,255,136,0.1);
+font-weight:600;
 }
 
 .faq-question:hover {
@@ -491,6 +488,7 @@ border-color:rgba(0,255,136,0.3);
 .faq-icon {
 color:#00ff88;
 transition:0.3s;
+font-size:14px;
 }
 
 .faq-question.active .faq-icon {
@@ -501,7 +499,10 @@ transform:rotate(180deg);
 display:none;
 padding:20px 15px;
 color:#ccc;
-line-height:1.6;
+line-height:1.8;
+background:rgba(0,0,0,0.2);
+border-radius:8px;
+margin-top:10px;
 }
 
 .faq-answer.active {
@@ -530,6 +531,9 @@ border-radius:30px;
 text-align:center;
 color:black;
 box-shadow:0 10px 40px rgba(255,204,0,0.2);
+max-width:1200px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .vip-section h2{
@@ -541,6 +545,7 @@ font-weight:700;
 .vip-section p {
 margin-bottom:20px;
 font-size:16px;
+line-height:1.6;
 }
 
 .vip-features {
@@ -552,13 +557,24 @@ margin:25px 0;
 
 .vip-feature {
 background:rgba(0,0,0,0.1);
-padding:15px;
+padding:20px 15px;
 border-radius:10px;
+transition:0.3s;
+}
+
+.vip-feature:hover {
+background:rgba(0,0,0,0.2);
+transform:translateY(-5px);
 }
 
 .vip-feature i {
-font-size:24px;
+font-size:32px;
 margin-bottom:10px;
+display:block;
+}
+
+.vip-feature strong {
+font-size:14px;
 display:block;
 }
 
@@ -586,34 +602,37 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 margin:40px 20px;
 padding:20px 0;
 text-align:center;
+max-width:1200px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .ads {
 margin:20px 0;
-padding:15px;
-border-radius:10px;
+padding:20px;
+border-radius:15px;
 background:rgba(16,38,61,0.9);
-border:1px solid rgba(0,255,136,0.2);
-min-height:auto;
+border:2px solid rgba(0,255,136,0.2);
 }
 
 .ads-label {
 color:#00ff88;
-font-size:12px;
+font-size:11px;
 font-weight:bold;
-margin-bottom:10px;
+letter-spacing:1px;
+margin-bottom:15px;
 display:block;
-opacity:0.7;
+opacity:0.8;
 }
 
 .ad-space {
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:250px;
+min-height:260px;
 background:rgba(0,0,0,0.3);
-border-radius:8px;
-border:1px dashed rgba(0,255,136,0.3);
+border-radius:10px;
+border:2px dashed rgba(0,255,136,0.3);
 position:relative;
 }
 
@@ -623,10 +642,50 @@ color:#aaa;
 }
 
 .ad-placeholder i {
-font-size:48px;
+font-size:52px;
 color:#00ff88;
-margin-bottom:10px;
+margin-bottom:15px;
 opacity:0.5;
+}
+
+.ad-placeholder p {
+font-size:14px;
+font-weight:600;
+margin-bottom:5px;
+}
+
+.ad-placeholder small {
+font-size:12px;
+opacity:0.7;
+}
+
+/* LISTS */
+
+ul {
+list-style:none;
+padding:0;
+margin:20px 0;
+}
+
+ul li {
+padding:12px 0 12px 35px;
+position:relative;
+line-height:1.8;
+color:#ccc;
+font-size:15px;
+}
+
+ul li:before {
+content:'✓';
+position:absolute;
+left:0;
+color:#00ff88;
+font-weight:bold;
+font-size:18px;
+}
+
+ul li:hover {
+color:white;
 }
 
 /* CONTACT */
@@ -650,25 +709,28 @@ display:block;
 margin-bottom:8px;
 font-weight:600;
 color:#00ff88;
+font-size:14px;
 }
 
 .form-group input,
 .form-group textarea {
 width:100%;
-padding:12px;
+padding:12px 15px;
 border:1px solid rgba(0,255,136,0.2);
 border-radius:10px;
 background:rgba(16,38,61,0.9);
 color:white;
 font-family:inherit;
 transition:0.3s;
+font-size:14px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
 outline:none;
 border-color:#00ff88;
-box-shadow:0 0 10px rgba(0,255,136,0.2);
+box-shadow:0 0 15px rgba(0,255,136,0.2);
+background:rgba(16,38,61,1);
 }
 
 .form-group textarea {
@@ -686,6 +748,7 @@ font-weight:700;
 cursor:pointer;
 transition:0.3s;
 width:100%;
+font-size:16px;
 }
 
 .submit-btn:hover {
@@ -700,6 +763,7 @@ padding:40px 20px 120px;
 text-align:center;
 color:#aaa;
 border-top:1px solid rgba(255,255,255,0.1);
+background:rgba(0,0,0,0.3);
 }
 
 .footer-content {
@@ -716,6 +780,7 @@ margin-right:auto;
 .footer-section h3 {
 color:#00ff88;
 margin-bottom:15px;
+font-size:16px;
 }
 
 .footer-section a {
@@ -724,16 +789,23 @@ color:#aaa;
 text-decoration:none;
 margin-bottom:8px;
 transition:0.3s;
+font-size:14px;
 }
 
 .footer-section a:hover {
 color:#00ff88;
 }
 
+.footer-section p {
+font-size:14px;
+line-height:1.6;
+}
+
 .footer-bottom {
 margin-top:30px;
 padding-top:30px;
 border-top:1px solid rgba(255,255,255,0.1);
+font-size:13px;
 }
 
 /* BOTTOM NAV */
@@ -779,15 +851,19 @@ font-size:36px;
 
 .stats{
 grid-template-columns:1fr;
+gap:20px;
+padding:30px 15px;
 }
 
 .vip-section {
 padding:25px;
 margin:25px 10px;
+font-size:14px;
 }
 
 .vip-features {
 grid-template-columns:repeat(2, 1fr);
+gap:12px;
 }
 
 .section-title {
@@ -802,6 +878,16 @@ padding:0 10px;
 min-height:280px;
 }
 
+ul li {
+padding:10px 0 10px 30px;
+font-size:14px;
+}
+
+.faq-question {
+padding:12px 15px;
+font-size:14px;
+}
+
 }
 
 </style>
@@ -810,84 +896,56 @@ min-height:280px;
 <body>
 
 <header>
-
 <a href="#home" class="logo">
 <i class="fas fa-crown"></i> MKPro Predictz
 </a>
-
 <div class="menu-btn" onclick="openMenu()">
 <i class="fas fa-bars"></i>
 </div>
-
 </header>
 
 <!-- SIDEBAR -->
-
 <div class="sidebar" id="sidebar">
-
 <div class="close-menu" onclick="closeMenu()">
 <i class="fas fa-times"></i>
 </div>
-
 <a href="#home" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a>
-
 <a href="#predictions" onclick="closeMenu()"><i class="fas fa-futbol"></i> Predictions</a>
-
 <a href="#vip" onclick="closeMenu()"><i class="fas fa-crown"></i> VIP Tips</a>
-
 <a href="#testimonials" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a>
-
 <a href="#faq" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
-
 <a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a>
-
 </div>
 
 <!-- HERO -->
-
 <section class="hero" id="home">
-
 <div class="hero-content">
-
 <h1>Win With <span>MKPro Predictz</span></h1>
-
 <p>Professional football predictions with 98% accuracy, daily VIP sure odds and live match analysis. Join thousands of winning players.</p>
-
 <div class="hero-btns">
-
 <button class="vip-btn" onclick="scrollTo('#vip')">JOIN VIP</button>
-
 <button class="free-btn" onclick="scrollTo('#predictions')">FREE TIPS</button>
-
 </div>
-
 </div>
-
 </section>
 
 <!-- STATS -->
-
 <section class="stats">
-
 <div class="stat-box">
 <h2>98%</h2>
 <p>Accuracy Rate</p>
 </div>
-
 <div class="stat-box">
 <h2>50K+</h2>
 <p>Active Users</p>
 </div>
-
 <div class="stat-box">
 <h2>24/7</h2>
 <p>Live Support</p>
 </div>
-
 </section>
 
 <!-- MATCHES -->
-
 <div class="section-title">
 Today's <span>Hot Predictions</span>
 </div>
@@ -895,185 +953,127 @@ Today's <span>Hot Predictions</span>
 <section class="matches" id="predictions">
 
 <div class="match-card">
-
-<div class="live-badge">
-LIVE
-</div>
-
+<div class="live-badge">LIVE</div>
 <div class="teams">
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal">
 <span>Arsenal</span>
 </div>
-
 <div class="vs">VS</div>
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" alt="Chelsea">
 <span>Chelsea</span>
 </div>
-
 </div>
-
-<div class="prediction">
-Over 2.5 Goals
-</div>
-
+<div class="prediction">Over 2.5 Goals</div>
 <div class="match-info">
 <span><i class="fas fa-chart-line"></i> Odds: 1.85</span>
 <span><i class="fas fa-fire"></i> Confidence: 89%</span>
 </div>
-
 </div>
 
 <div class="match-card">
-
 <div class="teams">
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" alt="Real Madrid">
 <span>Real Madrid</span>
 </div>
-
 <div class="vs">VS</div>
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="Barcelona">
 <span>Barcelona</span>
 </div>
-
 </div>
-
-<div class="prediction">
-BTTS YES
-</div>
-
+<div class="prediction">BTTS YES</div>
 <div class="match-info">
 <span><i class="fas fa-chart-line"></i> Odds: 2.10</span>
 <span><i class="fas fa-fire"></i> Confidence: 82%</span>
 </div>
-
 </div>
 
 <div class="match-card">
-
 <div class="teams">
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/Manchester_United.svg" alt="Man United">
 <span>Man United</span>
 </div>
-
 <div class="vs">VS</div>
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Man City">
 <span>Man City</span>
 </div>
-
 </div>
-
-<div class="prediction">
-Over 3.5 Goals
-</div>
-
+<div class="prediction">Over 3.5 Goals</div>
 <div class="match-info">
 <span><i class="fas fa-chart-line"></i> Odds: 1.95</span>
 <span><i class="fas fa-fire"></i> Confidence: 85%</span>
 </div>
-
 </div>
 
 <div class="match-card">
-
 <div class="teams">
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/9/96/Juventus_FC_new_logo.svg" alt="Juventus">
 <span>Juventus</span>
 </div>
-
 <div class="vs">VS</div>
-
 <div class="team">
 <img src="https://upload.wikimedia.org/wikipedia/en/d/d9/Inter_Milan.svg" alt="Inter Milan">
 <span>Inter Milan</span>
 </div>
-
 </div>
-
-<div class="prediction">
-Home Win
-</div>
-
+<div class="prediction">Home Win</div>
 <div class="match-info">
 <span><i class="fas fa-chart-line"></i> Odds: 2.50</span>
 <span><i class="fas fa-fire"></i> Confidence: 76%</span>
 </div>
-
 </div>
 
 </section>
 
 <!-- TESTIMONIALS -->
-
 <section class="testimonials" id="testimonials">
-
 <div class="section-title">
 What Our <span>Winners Say</span>
 </div>
-
 <div class="testimonial-grid">
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"MKPro Predictz has transformed my betting experience. Their predictions are incredibly accurate and the VIP service is worth every penny!"</p>
 <div class="testimonial-author">- John Mwangi</div>
 </div>
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"I've been using their free tips for 3 months and haven't lost a single bet. The analysis is detailed and reliable. Highly recommended!"</p>
 <div class="testimonial-author">- Sarah Kipchoge</div>
 </div>
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"Best prediction service I've found. Their VIP package is a game changer. Won over 500K this month alone. Thank you MKPro!"</p>
 <div class="testimonial-author">- Peter Omondi</div>
 </div>
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"Fantastic support team and accurate predictions. They respond to questions immediately. This is the real deal!"</p>
 <div class="testimonial-author">- Grace Achieng</div>
 </div>
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"I was skeptical at first, but their free predictions got me hooked. Joined VIP and haven't looked back. Worth it!"</p>
 <div class="testimonial-author">- David Kiplagat</div>
 </div>
-
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
 <p>"Most accurate football predictions I've ever seen. Their confidence ratings are always spot on. Best investment ever!"</p>
 <div class="testimonial-author">- Jane Mutua</div>
 </div>
-
 </div>
-
 </section>
 
 <!-- VIP -->
-
 <section class="vip-section" id="vip">
-
 <h2>🔥 VIP Premium Access</h2>
-
 <p>Unlock daily fixed matches, sure odds, expert football analysis and exclusive betting strategies.</p>
-
 <div class="vip-features">
 <div class="vip-feature">
 <i class="fas fa-check-circle"></i>
@@ -1092,15 +1092,11 @@ What Our <span>Winners Say</span>
 <strong>24/7 Support</strong>
 </div>
 </div>
-
 <button onclick="alert('Join VIP feature coming soon! Contact us for details.')">UNLOCK NOW - Get 50% OFF</button>
-
 </section>
 
-<!-- ADS SECTION 1 - GOOGLE ADSENSE (300x250) -->
-
+<!-- ADS SECTION 1 -->
 <div class="ads-container">
-
 <div class="ads">
 <span class="ads-label">ADVERTISEMENT</span>
 <div class="ad-space">
@@ -1110,22 +1106,11 @@ What Our <span>Winners Say</span>
 <small>Insert your Google AdSense code here</small>
 </div>
 </div>
-<!-- PASTE YOUR GOOGLE ADSENSE CODE HERE -->
-<!-- <ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
-     data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-     data-ad-slot="xxxxxxxxxx"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script> -->
 </div>
-
 </div>
 
 <!-- FAQ -->
-
 <section class="faq" id="faq">
-
 <div class="section-title">
 Frequently Asked <span>Questions</span>
 </div>
@@ -1146,7 +1131,14 @@ Our predictions have a 98% accuracy rate based on advanced statistical analysis 
 <i class="fas fa-chevron-down faq-icon"></i>
 </div>
 <div class="faq-answer">
-VIP membership includes: Daily sure tips, exclusive fixed matches, premium odds analysis, live match commentary, priority customer support, and access to our expert betting strategies.
+<ul>
+<li>Daily sure tips</li>
+<li>Exclusive fixed matches</li>
+<li>Premium odds analysis</li>
+<li>Live match commentary</li>
+<li>Priority customer support</li>
+<li>Expert betting strategies</li>
+</ul>
 </div>
 </div>
 
@@ -1156,7 +1148,7 @@ VIP membership includes: Daily sure tips, exclusive fixed matches, premium odds 
 <i class="fas fa-chevron-down faq-icon"></i>
 </div>
 <div class="faq-answer">
-Yes! We offer a 7-day money-back guarantee. If you're not satisfied with our service, contact our support team and we'll process a full refund.
+Yes! We offer a 7-day money-back guarantee. If you're not satisfied with our service, contact our support team and we'll process a full refund without any questions.
 </div>
 </div>
 
@@ -1166,26 +1158,30 @@ Yes! We offer a 7-day money-back guarantee. If you're not satisfied with our ser
 <i class="fas fa-chevron-down faq-icon"></i>
 </div>
 <div class="faq-answer">
-Predictions are updated daily, usually between 8 AM and 10 AM. We also provide live updates throughout match days when there are significant changes.
+Predictions are updated daily, usually between 8 AM and 10 AM. We also provide live updates throughout match days when there are significant changes or new opportunities.
 </div>
 </div>
 
 <div class="faq-item">
 <div class="faq-question" onclick="toggleFaq(this)">
-<span>Is there a minimum bet amount?</span>
+<span>What payment methods do you accept?</span>
 <i class="fas fa-chevron-down faq-icon"></i>
 </div>
 <div class="faq-answer">
-No minimum bet amount. Our predictions work for any stake, whether you're betting 100 Ksh or 10,000 Ksh. The odds and confidence ratings remain consistent.
+<ul>
+<li>M-Pesa (Kenya)</li>
+<li>Credit/Debit Cards</li>
+<li>Bank Transfers</li>
+<li>Online Wallets</li>
+<li>Cryptocurrency</li>
+</ul>
 </div>
 </div>
 
 </section>
 
-<!-- ADS SECTION 2 - NATIVE AD BANNER (728x90) -->
-
+<!-- ADS SECTION 2 -->
 <div class="ads-container">
-
 <div class="ads">
 <span class="ads-label">SPONSORED CONTENT</span>
 <div class="ad-space" style="min-height:100px;">
@@ -1195,53 +1191,39 @@ No minimum bet amount. Our predictions work for any stake, whether you're bettin
 <small>Your sponsor or ad network code</small>
 </div>
 </div>
-<!-- PASTE YOUR NATIVE AD CODE HERE -->
 </div>
-
 </div>
 
 <!-- CONTACT -->
-
 <section class="contact" id="contact">
-
 <div class="section-title">
 Get In <span>Touch</span>
 </div>
-
 <div class="contact-form">
 <form onsubmit="handleSubmit(event)">
-
 <div class="form-group">
 <label for="name">Full Name</label>
 <input type="text" id="name" name="name" required>
 </div>
-
 <div class="form-group">
 <label for="email">Email Address</label>
 <input type="email" id="email" name="email" required>
 </div>
-
 <div class="form-group">
 <label for="subject">Subject</label>
 <input type="text" id="subject" name="subject" required>
 </div>
-
 <div class="form-group">
 <label for="message">Message</label>
 <textarea id="message" name="message" required></textarea>
 </div>
-
 <button type="submit" class="submit-btn">Send Message</button>
-
 </form>
 </div>
-
 </section>
 
-<!-- ADS SECTION 3 - SIDEBAR AD (300x600) -->
-
+<!-- ADS SECTION 3 -->
 <div class="ads-container">
-
 <div class="ads">
 <span class="ads-label">ADVERTISEMENT</span>
 <div class="ad-space" style="min-height:620px;">
@@ -1251,79 +1233,50 @@ Get In <span>Touch</span>
 <small>Insert your ad code here</small>
 </div>
 </div>
-<!-- PASTE YOUR SIDEBAR AD CODE HERE -->
 </div>
-
 </div>
 
 <!-- FOOTER -->
-
 <footer>
-
 <div class="footer-content">
-
 <div class="footer-section">
 <h3>About Us</h3>
-<p>MKPro Predictz is your trusted partner for accurate football predictions and expert betting analysis.</p>
+<p>MKPro Predictz is your trusted partner for accurate football predictions and expert betting analysis since 2020.</p>
 </div>
-
 <div class="footer-section">
 <h3>Quick Links</h3>
 <a href="#home">Home</a>
 <a href="#predictions">Predictions</a>
 <a href="#vip">VIP Tips</a>
 <a href="#testimonials">Reviews</a>
+<a href="#faq">FAQ</a>
 </div>
-
 <div class="footer-section">
 <h3>Support</h3>
 <a href="#contact">Contact Us</a>
-<a href="#faq">FAQ</a>
 <a href="#">Terms of Service</a>
 <a href="#">Privacy Policy</a>
+<a href="#">Disclaimer</a>
 </div>
-
 <div class="footer-section">
 <h3>Follow Us</h3>
 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a href="https://whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 </div>
-
 </div>
-
 <div class="footer-bottom">
-
 <p>&copy; 2026 MKPro Predictz. All Rights Reserved. | Built with <i class="fas fa-heart"></i> for winners.</p>
-
 </div>
-
 </footer>
 
 <!-- BOTTOM NAV -->
-
 <nav class="bottom-nav">
-
-<a href="#home">
-<i class="fas fa-home"></i>
-Home
-</a>
-
-<a href="#predictions">
-<i class="fas fa-futbol"></i>
-Predictions
-</a>
-
-<a href="#vip">
-<i class="fas fa-crown"></i>
-VIP
-</a>
-
-<a href="#contact">
-<i class="fas fa-envelope"></i>
-Contact
-</a>
-
+<a href="#home"><i class="fas fa-home"></i> Home</a>
+<a href="#predictions"><i class="fas fa-futbol"></i> Predictions</a>
+<a href="#vip"><i class="fas fa-crown"></i> VIP</a>
+<a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
 </nav>
 
 <script>
@@ -1339,11 +1292,8 @@ document.getElementById("sidebar").classList.remove("active");
 function toggleFaq(element){
 const question = element;
 const answer = element.nextElementSibling;
-
 question.classList.toggle("active");
 answer.classList.toggle("active");
-
-// Close other open answers
 document.querySelectorAll('.faq-question.active').forEach(q => {
 if(q !== question){
 q.classList.remove("active");
@@ -1368,7 +1318,6 @@ alert(`Thank you ${name}! Your message has been received. We'll get back to you 
 form.reset();
 }
 
-// Close sidebar when clicking outside
 document.addEventListener('click', function(event){
 const sidebar = document.getElementById('sidebar');
 const menuBtn = document.querySelector('.menu-btn');
@@ -1377,7 +1326,6 @@ closeMenu();
 }
 });
 
-// Smooth scroll behavior for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e){
 e.preventDefault();
