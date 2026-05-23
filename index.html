@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKPro Predictz</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#06131f;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+color:#00ff88;
+}
+
+.menu-btn{
+font-size:24px;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+right:-260px;
+width:250px;
+height:100%;
+background:#0c1d30;
+padding-top:80px;
+transition:0.4s;
+z-index:999;
+}
+
+.sidebar.active{
+right:0;
+}
+
+.sidebar a{
+display:block;
+padding:16px 25px;
+color:white;
+text-decoration:none;
+font-size:16px;
+border-bottom:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:#00ff88;
+color:black;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero-content span{
+color:#00ff88;
+}
+
+.hero-content p{
+color:#ccc;
+margin-bottom:25px;
+font-size:16px;
+}
+
+.hero-btns{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-btns button{
+padding:14px 25px;
+border:none;
+border-radius:40px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.vip-btn{
+background:#00ff88;
+color:black;
+}
+
+.free-btn{
+background:transparent;
+border:2px solid white !important;
+color:white;
+}
+
+.hero-btns button:hover{
+transform:scale(1.05);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+padding:20px;
+margin-top:-70px;
+position:relative;
+z-index:2;
+}
+
+.stat-box{
+background:#10263d;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.stat-box h2{
+color:#00ff88;
+margin-bottom:5px;
+}
+
+/* SECTION */
+
+.section-title{
+padding:25px 20px 10px;
+font-size:24px;
+font-weight:700;
+}
+
+/* MATCHES */
+
+.matches{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.match-card{
+background:#10263d;
+border-radius:25px;
+padding:20px;
+position:relative;
+overflow:hidden;
+box-shadow:0 5px 25px rgba(0,0,0,0.3);
+}
+
+.live-badge{
+position:absolute;
+top:15px;
+right:15px;
+background:red;
+padding:6px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0.4;
+}
+}
+
+.teams{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+font-size:18px;
+font-weight:600;
+}
+
+.team{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+}
+
+.team img{
+width:55px;
+height:55px;
+border-radius:50%;
+border:2px solid #00ff88;
+}
+
+.vs{
+font-size:22px;
+color:#00ff88;
+}
+
+.prediction{
+background:#00ff88;
+color:black;
+display:inline-block;
+padding:10px 18px;
+border-radius:30px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.match-info{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+color:#ccc;
+margin-top:10px;
+}
+
+/* VIP */
+
+.vip-section{
+margin:25px 20px;
+padding:30px;
+background:linear-gradient(135deg,#ffcc00,#ff9800);
+border-radius:30px;
+text-align:center;
+color:black;
+}
+
+.vip-section h2{
+margin-bottom:10px;
+font-size:28px;
+}
+
+.vip-section button{
+margin-top:20px;
+padding:14px 28px;
+border:none;
+border-radius:40px;
+background:black;
+color:white;
+font-weight:bold;
+font-size:16px;
+}
+
+/* ADS */
+
+.ads{
+margin:20px;
+padding:25px;
+border-radius:25px;
+background:#0f2235;
+text-align:center;
+border:2px dashed #00ff88;
+}
+
+.ads h3{
+color:#00ff88;
+margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px 20px 100px;
+text-align:center;
+color:#aaa;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#08131f;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+border-top:1px solid rgba(255,255,255,0.08);
+z-index:1000;
+}
+
+.bottom-nav a{
+color:white;
+text-decoration:none;
+font-size:13px;
+text-align:center;
+}
+
+.bottom-nav i{
+display:block;
+font-size:22px;
+margin-bottom:5px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero-content h1{
+font-size:32px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">MKPro Predictz</div>
+
+<div class="menu-btn" onclick="openMenu()">
+<i class="fas fa-bars"></i>
+</div>
+
+</header>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+<a href="#"><i class="fas fa-home"></i> Home</a>
+
+<a href="#"><i class="fas fa-futbol"></i> Predictions</a>
+
+<a href="#"><i class="fas fa-crown"></i> VIP Tips</a>
+
+<a href="#"><i class="fas fa-chart-line"></i> Statistics</a>
+
+<a href="#"><i class="fas fa-wallet"></i> Payments</a>
+
+<a href="#"><i class="fas fa-user"></i> Account</a>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Win With <span>MKPro Predictz</span></h1>
+
+<p>Professional football predictions with daily VIP sure odds and live analysis.</p>
+
+<div class="hero-btns">
+
+<button class="vip-btn">JOIN VIP</button>
+
+<button class="free-btn">FREE TIPS</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>98%</h2>
+<p>Accuracy</p>
+</div>
+
+<div class="stat-box">
+<h2>500+</h2>
+<p>Daily Users</p>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<p>Live Support</p>
+</div>
+
+</section>
+
+<!-- MATCHES -->
+
+<div class="section-title">
+Today's Hot Predictions
+</div>
+
+<section class="matches">
+
+<div class="match-card">
+
+<div class="live-badge">
+LIVE
+</div>
+
+<div class="teams">
+
+<div class="team">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
+<span>Arsenal</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg">
+<span>Chelsea</span>
+</div>
+
+</div>
+
+<div class="prediction">
+Over 2.5 Goals
+</div>
+
+<div class="match-info">
+<span>Odds: 1.85</span>
+<span>Confidence: 89%</span>
+</div>
+
+</div>
+
+<div class="match-card">
+
+<div class="teams">
+
+<div class="team">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg">
+<span>Real Madrid</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg">
+<span>Barcelona</span>
+</div>
+
+</div>
+
+<div class="prediction">
+BTTS YES
+</div>
+
+<div class="match-info">
+<span>Odds: 2.10</span>
+<span>Confidence: 82%</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- VIP -->
+
+<section class="vip-section">
+
+<h2>VIP Premium Access</h2>
+
+<p>Unlock daily fixed matches, sure odds and expert football analysis.</p>
+
+<button>UNLOCK NOW</button>
+
+</section>
+
+<!-- ADS -->
+
+<section class="ads">
+
+<h3>Google Ads Area</h3>
+
+<p>Your AdSense or Sponsor Ads can appear here.</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 MKPro Predictz. All Rights Reserved.</p>
+
+</footer>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+<a href="#">
+<i class="fas fa-home"></i>
+Home
+</a>
+
+<a href="#">
+<i class="fas fa-futbol"></i>
+Matches
+</a>
+
+<a href="#">
+<i class="fas fa-crown"></i>
+VIP
+</a>
+
+<a href="#">
+<i class="fas fa-user"></i>
+Profile
+</a>
+
+</nav>
+
+<script>
+
+function openMenu(){
+document.getElementById("sidebar").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
+
