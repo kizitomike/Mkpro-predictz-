@@ -13,6 +13,10 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
+
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -578,18 +582,51 @@ box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
 /* ADS */
 
-.ads{
+.ads-container {
 margin:40px 20px;
-padding:30px;
-border-radius:25px;
-background:rgba(16,38,61,0.9);
+padding:20px 0;
 text-align:center;
-border:2px dashed #00ff88;
 }
 
-.ads h3{
+.ads {
+margin:20px 0;
+padding:15px;
+border-radius:10px;
+background:rgba(16,38,61,0.9);
+border:1px solid rgba(0,255,136,0.2);
+min-height:auto;
+}
+
+.ads-label {
 color:#00ff88;
-margin-bottom:15px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:10px;
+display:block;
+opacity:0.7;
+}
+
+.ad-space {
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:250px;
+background:rgba(0,0,0,0.3);
+border-radius:8px;
+border:1px dashed rgba(0,255,136,0.3);
+position:relative;
+}
+
+.ad-placeholder {
+text-align:center;
+color:#aaa;
+}
+
+.ad-placeholder i {
+font-size:48px;
+color:#00ff88;
+margin-bottom:10px;
+opacity:0.5;
 }
 
 /* CONTACT */
@@ -759,6 +796,10 @@ font-size:24px;
 
 .contact-form {
 padding:0 10px;
+}
+
+.ad-space {
+min-height:280px;
 }
 
 }
@@ -1056,6 +1097,31 @@ What Our <span>Winners Say</span>
 
 </section>
 
+<!-- ADS SECTION 1 - GOOGLE ADSENSE (300x250) -->
+
+<div class="ads-container">
+
+<div class="ads">
+<span class="ads-label">ADVERTISEMENT</span>
+<div class="ad-space">
+<div class="ad-placeholder">
+<i class="fas fa-square"></i>
+<p>Google AdSense 300x250 Ad Space</p>
+<small>Insert your Google AdSense code here</small>
+</div>
+</div>
+<!-- PASTE YOUR GOOGLE ADSENSE CODE HERE -->
+<!-- <ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+     data-ad-slot="xxxxxxxxxx"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> -->
+</div>
+
+</div>
+
 <!-- FAQ -->
 
 <section class="faq" id="faq">
@@ -1116,15 +1182,23 @@ No minimum bet amount. Our predictions work for any stake, whether you're bettin
 
 </section>
 
-<!-- ADS -->
+<!-- ADS SECTION 2 - NATIVE AD BANNER (728x90) -->
 
-<section class="ads">
+<div class="ads-container">
 
-<h3><i class="fas fa-ads"></i> Advertisement Area</h3>
+<div class="ads">
+<span class="ads-label">SPONSORED CONTENT</span>
+<div class="ad-space" style="min-height:100px;">
+<div class="ad-placeholder">
+<i class="fas fa-rectangle-ad"></i>
+<p>Native Ad / Leaderboard (728x90)</p>
+<small>Your sponsor or ad network code</small>
+</div>
+</div>
+<!-- PASTE YOUR NATIVE AD CODE HERE -->
+</div>
 
-<p>Your AdSense or Sponsor Ads can appear here. Contact us for advertising opportunities.</p>
-
-</section>
+</div>
 
 <!-- CONTACT -->
 
@@ -1163,6 +1237,24 @@ Get In <span>Touch</span>
 </div>
 
 </section>
+
+<!-- ADS SECTION 3 - SIDEBAR AD (300x600) -->
+
+<div class="ads-container">
+
+<div class="ads">
+<span class="ads-label">ADVERTISEMENT</span>
+<div class="ad-space" style="min-height:620px;">
+<div class="ad-placeholder">
+<i class="fas fa-square"></i>
+<p>Half Page / Sidebar Ad (300x600)</p>
+<small>Insert your ad code here</small>
+</div>
+</div>
+<!-- PASTE YOUR SIDEBAR AD CODE HERE -->
+</div>
+
+</div>
 
 <!-- FOOTER -->
 
