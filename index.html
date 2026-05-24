@@ -9,13 +9,19 @@
 <meta property="og:title" content="MKPro Predictz - Professional Football Predictions">
 <meta property="og:description" content="Daily VIP football predictions with 98% accuracy and live analysis.">
 <meta property="og:type" content="website">
-<title>MKPro Predictz - Professional Football Predictions & VIP Tips</title>
+<meta property="og:image" content="https://via.placeholder.com/1200x630?text=MKPro+Predictz">
+<meta name="theme-color" content="#00ff88">
+<title>MKPro Predictz - Professional Football Predictions & VIP Tips | 98% Win Rate</title>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ========== GLOBAL STYLES ========== */
 
@@ -31,7 +37,7 @@ html {
 }
 
 body {
-  background: #06131f;
+  background: linear-gradient(135deg, #06131f 0%, #0a1929 100%);
   color: white;
   overflow-x: hidden;
   line-height: 1.6;
@@ -41,116 +47,250 @@ body {
 
 :root {
   --primary-color: #00ff88;
+  --primary-dark: #00cc66;
+  --secondary-color: #ff6b6b;
   --dark-bg: #06131f;
   --card-bg: rgba(16, 38, 61, 0.9);
   --light-border: rgba(255, 255, 255, 0.1);
   --primary-shadow: rgba(0, 255, 136, 0.3);
 }
 
-/* ========== HEADER & NAVIGATION ========== */
+/* ========== UNIQUE HEADER ========== */
 
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15px 20px;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(6, 19, 31, 0.95));
+  backdrop-filter: blur(20px);
   z-index: 1000;
-  border-bottom: 1px solid var(--light-border);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 8px 32px rgba(0, 255, 136, 0.15);
+  height: 70px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary-color);
+  font-size: 26px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary-color), #00ffaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   transition: 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: 0.5px;
 }
 
 .logo:hover {
   transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.6));
+}
+
+.logo i {
+  animation: crown-spin 3s linear infinite;
+}
+
+@keyframes crown-spin {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(360deg); }
+}
+
+.header-stats {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.header-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.header-stat-label {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .menu-btn {
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   transition: 0.3s ease;
   color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 255, 136, 0.1);
 }
 
 .menu-btn:hover {
   color: var(--primary-color);
+  background: rgba(0, 255, 136, 0.2);
+  transform: rotate(90deg);
 }
 
-/* ========== SIDEBAR ========== */
+/* ========== IMPROVED SLIDE MENU ========== */
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 998;
+  backdrop-filter: blur(5px);
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
 .sidebar {
   position: fixed;
   top: 0;
-  right: -260px;
-  width: 250px;
-  height: 100%;
-  background: #0c1d30;
-  padding-top: 80px;
-  transition: 0.4s ease;
+  right: -350px;
+  width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, #0c1d30 0%, #051219 100%);
+  padding-top: 0;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   z-index: 999;
   overflow-y: auto;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+  border-left: 2px solid var(--primary-color);
 }
 
 .sidebar.active {
   right: 0;
 }
 
+.sidebar-header {
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 255, 136, 0.05));
+  border-bottom: 1px solid var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.close-menu {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 51, 51, 0.1);
+}
+
+.close-menu:hover {
+  color: var(--secondary-color);
+  background: rgba(255, 51, 51, 0.2);
+  transform: rotate(90deg);
+}
+
+.sidebar-menu {
+  padding: 20px 0;
+}
+
 .sidebar a {
-  display: block;
-  padding: 16px 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 25px;
   color: white;
   text-decoration: none;
   font-size: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.3s ease;
+  position: relative;
 }
 
-.sidebar a:hover {
-  background: var(--primary-color);
-  color: black;
-  padding-left: 35px;
-}
-
-.close-menu {
+.sidebar a::before {
+  content: '';
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--primary-color);
+  transform: scaleY(0);
   transition: 0.3s ease;
 }
 
-.close-menu:hover {
+.sidebar a:hover {
+  background: rgba(0, 255, 136, 0.1);
   color: var(--primary-color);
+  padding-left: 35px;
+}
+
+.sidebar a:hover::before {
+  transform: scaleY(1);
+}
+
+.sidebar a i {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
 }
 
 /* ========== HERO SECTION ========== */
 
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 0, 0, 0.8)), 
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 0, 0, 0.85)), 
               url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 20px;
-  margin-top: 60px;
+  margin-top: 70px;
   position: relative;
   overflow: hidden;
 }
@@ -162,7 +302,7 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -185,22 +325,44 @@ header {
 }
 
 .hero-content h1 {
-  font-size: 52px;
+  font-size: 56px;
   margin-bottom: 15px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: -1px;
+  line-height: 1.2;
 }
 
 .hero-content span {
-  color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), #00ffaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
 
 .hero-content p {
   color: #ccc;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 18px;
   line-height: 1.6;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(0, 255, 136, 0.1);
+  border: 2px solid var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: var(--primary-color);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+  50% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
 }
 
 /* ========== BUTTONS ========== */
@@ -213,26 +375,46 @@ header {
 }
 
 .btn {
-  padding: 14px 32px;
+  padding: 15px 40px;
   border: none;
-  border-radius: 40px;
+  border-radius: 50px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: black;
-  box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 255, 136, 0.6);
 }
 
 .btn-secondary {
@@ -243,7 +425,8 @@ header {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.05);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 /* ========== STATS SECTION ========== */
@@ -292,15 +475,18 @@ header {
 
 .section-title {
   padding: 40px 20px 20px;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .section-title span {
-  color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), #00ffaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ========== MATCHES SECTION ========== */
@@ -402,7 +588,7 @@ header {
 }
 
 .prediction {
-  background: linear-gradient(135deg, #00ff88, #00cc66);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: black;
   display: inline-block;
   padding: 12px 22px;
@@ -616,6 +802,10 @@ header {
   border-radius: 15px;
   background: var(--card-bg);
   border: 2px solid rgba(0, 255, 136, 0.2);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ads-label {
@@ -626,69 +816,6 @@ header {
   margin-bottom: 15px;
   display: block;
   opacity: 0.8;
-}
-
-.ad-space {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 260px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  border: 2px dashed rgba(0, 255, 136, 0.3);
-  position: relative;
-}
-
-.ad-placeholder {
-  text-align: center;
-  color: #aaa;
-}
-
-.ad-placeholder i {
-  font-size: 52px;
-  color: var(--primary-color);
-  margin-bottom: 15px;
-  opacity: 0.5;
-}
-
-.ad-placeholder p {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.ad-placeholder small {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-/* ========== LISTS ========== */
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-ul li {
-  padding: 12px 0 12px 35px;
-  position: relative;
-  line-height: 1.8;
-  color: #ccc;
-  font-size: 15px;
-}
-
-ul li:before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--primary-color);
-  font-weight: bold;
-  font-size: 18px;
-}
-
-ul li:hover {
-  color: white;
 }
 
 /* ========== CONTACT SECTION ========== */
@@ -800,12 +927,13 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #08131f;
+  background: linear-gradient(180deg, #08131f 0%, #051219 100%);
   display: flex;
   justify-content: space-around;
   padding: 12px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid rgba(0, 255, 136, 0.3);
   z-index: 1000;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .bottom-nav a {
@@ -829,6 +957,14 @@ footer {
 /* ========== RESPONSIVE DESIGN ========== */
 
 @media(max-width: 768px) {
+  header {
+    height: 60px;
+  }
+
+  .header-stats {
+    display: none;
+  }
+
   .hero-content h1 {
     font-size: 42px;
   }
@@ -856,23 +992,13 @@ footer {
   .contact-form {
     padding: 0 10px;
   }
-
-  ul li {
-    padding: 10px 0 10px 30px;
-    font-size: 14px;
-  }
-
-  .faq-question {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-
-  .ad-space {
-    min-height: 280px;
-  }
 }
 
 @media(max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+
   .hero-content h1 {
     font-size: 28px;
   }
@@ -941,6 +1067,10 @@ footer {
   .btn {
     width: 100%;
   }
+
+  .sidebar {
+    width: 280px;
+  }
 }
 
 </style>
@@ -948,32 +1078,57 @@ footer {
 
 <body>
 
+<!-- ========== MENU OVERLAY ========== -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
 <!-- ========== HEADER ========== -->
 <header>
-  <a href="#home" class="logo">
-    <i class="fas fa-crown"></i> MKPro Predictz
-  </a>
-  <div class="menu-btn" onclick="openMenu()">
-    <i class="fas fa-bars"></i>
+  <div class="header-container">
+    <a href="#home" class="logo">
+      <i class="fas fa-crown"></i> MKPro Predictz
+    </a>
+    <div class="header-stats">
+      <div class="header-stat">
+        <div class="header-stat-value">98%</div>
+        <div class="header-stat-label">Accuracy</div>
+      </div>
+      <div class="header-stat">
+        <div class="header-stat-value">50K+</div>
+        <div class="header-stat-label">Users</div>
+      </div>
+      <div class="header-stat">
+        <div class="header-stat-value">24/7</div>
+        <div class="header-stat-label">Support</div>
+      </div>
+    </div>
+    <div class="menu-btn" onclick="openMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
   </div>
 </header>
 
-<!-- ========== SIDEBAR ========== -->
+<!-- ========== IMPROVED SLIDE MENU ========== -->
 <div class="sidebar" id="sidebar">
-  <div class="close-menu" onclick="closeMenu()">
-    <i class="fas fa-times"></i>
+  <div class="sidebar-header">
+    <div class="sidebar-title">Navigation</div>
+    <div class="close-menu" onclick="closeMenu()">
+      <i class="fas fa-times"></i>
+    </div>
   </div>
-  <a href="#home" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a>
-  <a href="#predictions" onclick="closeMenu()"><i class="fas fa-futbol"></i> Predictions</a>
-  <a href="#vip" onclick="closeMenu()"><i class="fas fa-crown"></i> VIP Tips</a>
-  <a href="#testimonials" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a>
-  <a href="#faq" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
-  <a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="sidebar-menu">
+    <a href="#home" onclick="closeMenu()"><i class="fas fa-home"></i> Home</a>
+    <a href="#predictions" onclick="closeMenu()"><i class="fas fa-futbol"></i> Predictions</a>
+    <a href="#vip" onclick="closeMenu()"><i class="fas fa-crown"></i> VIP Tips</a>
+    <a href="#testimonials" onclick="closeMenu()"><i class="fas fa-star"></i> Reviews</a>
+    <a href="#faq" onclick="closeMenu()"><i class="fas fa-question-circle"></i> FAQ</a>
+    <a href="#contact" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
 </div>
 
 <!-- ========== HERO SECTION ========== -->
 <section class="hero" id="home">
   <div class="hero-content">
+    <div class="hero-badge">🎯 MOST TRUSTED PREDICTION SERVICE IN 2024</div>
     <h1>Win With <span>MKPro Predictz</span></h1>
     <p>Professional football predictions with 98% accuracy, daily VIP sure odds and live match analysis. Join thousands of winning players.</p>
     <div class="hero-btns">
@@ -1050,6 +1205,22 @@ footer {
   </div>
 </section>
 
+<!-- ========== GOOGLE ADSENSE SECTION ========== -->
+<div class="ads-container">
+  <div class="ads">
+    <span class="ads-label">ADVERTISEMENT</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+         data-ad-slot="xxxxxxxxxx"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
 <!-- ========== VIP SECTION ========== -->
 <section id="vip">
   <div class="vip-section">
@@ -1073,7 +1244,7 @@ footer {
         <strong>Priority Support</strong>
       </div>
     </div>
-    <button class="btn" style="background: black; color: var(--primary-color); margin-top: 20px;">SUBSCRIBE NOW - $9.99/Month</button>
+    <button class="btn" style="background: black; color: var(--primary-color); margin-top: 20px; border: 2px solid var(--primary-color);">SUBSCRIBE NOW - $9.99/Month</button>
   </div>
 </section>
 
@@ -1206,19 +1377,26 @@ footer {
 
 <!-- ========== JAVASCRIPT ========== -->
 <script>
-// Menu Toggle
+// Menu Toggle with Overlay
 function openMenu() {
   const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('menuOverlay');
   sidebar.classList.add('active');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
   const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('menuOverlay');
   sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
 }
 
 // Smooth Scroll
 function scrollTo(id) {
+  closeMenu();
   const element = document.querySelector(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
@@ -1250,6 +1428,13 @@ function handleSubmit(event) {
   alert('Thank you for your message! We will get back to you soon.');
   event.target.reset();
 }
+
+// Close menu on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeMenu();
+  }
+});
 </script>
 
 </body>
