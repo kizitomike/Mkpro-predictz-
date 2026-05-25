@@ -3,590 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MKPro Predictz - Professional football predictions with expert analysis and daily VIP tips">
-    <meta name="keywords" content="football predictions, sports betting tips, soccer analysis, live predictions">
+    <meta name="description" content="MKPro Predictz PRO - Advanced AI-Powered Football Predictions with Expert Analysis, Live Stats & 85%+ Win Rate">
+    <meta name="keywords" content="football predictions, sports betting tips, soccer analysis, live predictions, AI predictions">
     <meta name="author" content="MKPro Predictz">
-    <title>MKPro Predictz - Free Football Predictions & Expert Tips</title>
+    <title>MKPro Predictz PRO - AI Football Predictions & Expert Analysis</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #1a2a3a 0%, #0f1d2d 100%);
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(180deg, rgba(15, 29, 45, 0.98) 0%, rgba(20, 35, 55, 0.95) 100%);
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 70px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        .menu-toggle {
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            display: none;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #ff9800, #ff6b35);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .icon-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon-btn:hover {
-            background: rgba(255, 152, 0, 0.2);
-            color: #ff9800;
-        }
-
-        .language-selector {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            margin-top: 70px;
-            padding: 60px 20px 40px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .match-of-day-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff9800, #ff6b35);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-subtitle {
-            color: #b0b0b0;
-            font-size: 18px;
-            margin-bottom: 50px;
-            max-width: 600px;
-        }
-
-        /* ===== MATCH OF DAY ===== */
-        .match-of-day {
-            background: rgba(20, 35, 55, 0.9);
-            border-radius: 20px;
-            padding: 40px 20px;
-            max-width: 500px;
-            margin: 0 auto;
-            border: 1px solid rgba(255, 152, 0, 0.2);
-        }
-
-        .match-teams {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .team-card {
-            flex: 1;
-            text-align: center;
-        }
-
-        .team-logo {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 152, 0, 0.1);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            border: 2px solid rgba(255, 152, 0, 0.3);
-        }
-
-        .team-name {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .team-country {
-            color: #888;
-            font-size: 13px;
-        }
-
-        .vs {
-            color: #888;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .match-details {
-            text-align: center;
-            color: #888;
-            font-size: 13px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 152, 0, 0.1);
-        }
-
-        .match-league {
-            font-weight: 600;
-            color: white;
-        }
-
-        /* ===== PREDICTIONS SECTION ===== */
-        .predictions-section {
-            padding: 60px 20px;
-            background: linear-gradient(180deg, rgba(15, 29, 45, 0.5) 0%, rgba(10, 20, 35, 0.8) 100%);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .see-all-btn {
-            background: linear-gradient(135deg, #ff9800, #ff6b35);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .see-all-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
-        }
-
-        /* ===== PREDICTIONS TABLE ===== */
-        .predictions-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(20, 35, 55, 0.7);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 152, 0, 0.1);
-        }
-
-        .table-header {
-            display: grid;
-            grid-template-columns: 2fr 2fr 1fr 1fr;
-            gap: 20px;
-            padding: 20px 30px;
-            background: rgba(10, 20, 35, 0.8);
-            border-bottom: 2px solid rgba(255, 152, 0, 0.3);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 1px;
-            color: #999;
-        }
-
-        .prediction-row {
-            display: grid;
-            grid-template-columns: 2fr 2fr 1fr 1fr;
-            gap: 20px;
-            padding: 20px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            align-items: center;
-            transition: 0.3s ease;
-        }
-
-        .prediction-row:hover {
-            background: rgba(255, 152, 0, 0.05);
-        }
-
-        .prediction-row:last-child {
-            border-bottom: none;
-        }
-
-        .team-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .team-info-logo {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 152, 0, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            border: 2px solid rgba(255, 152, 0, 0.2);
-        }
-
-        .team-info-name {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .odds {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ff9800;
-        }
-
-        .prediction-tip {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid;
-        }
-
-        .tip-home-dc {
-            background: rgba(0, 150, 0, 0.1);
-            color: #4ade80;
-            border-color: #4ade80;
-        }
-
-        .tip-home-win {
-            background: rgba(0, 180, 0, 0.1);
-            color: #22c55e;
-            border-color: #22c55e;
-        }
-
-        .tip-away-dc {
-            background: rgba(255, 152, 0, 0.1);
-            color: #ff9800;
-            border-color: #ff9800;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: rgba(10, 20, 35, 0.95);
-            padding: 40px 20px;
-            text-align: center;
-            color: #888;
-            border-top: 1px solid rgba(255, 152, 0, 0.1);
-            margin-top: 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            text-align: left;
-        }
-
-        .footer-section h3 {
-            color: #ff9800;
-            margin-bottom: 15px;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .footer-section a {
-            display: block;
-            color: #888;
-            text-decoration: none;
-            margin-bottom: 8px;
-            font-size: 13px;
-            transition: 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #ff9800;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 152, 0, 0.1);
-            padding-top: 20px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header-stats {
-                display: none;
-            }
-
-            .language-selector {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .table-header,
-            .prediction-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 15px 20px;
-            }
-
-            .section-header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- HEADER -->
     <header>
         <div class="header-left">
-            <div class="menu-toggle">
+            <button class="menu-toggle">
                 <i class="fas fa-bars"></i>
-            </div>
-            <a href="/" class="logo">
+            </button>
+            <a href="#home" class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-trophy"></i>
+                    <i class="fas fa-brain"></i>
                 </div>
-                MKPro Predictz
+                <div>
+                    <div class="logo-text">MKPro Predictz</div>
+                    <div class="logo-badge">PRO AI</div>
+                </div>
             </a>
         </div>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#predictions">Predictions</a>
+            <a href="#experts">Experts</a>
+            <a href="#stats">Stats</a>
+            <a href="#vip">VIP Plan</a>
+        </nav>
         <div class="header-right">
             <div class="header-icons">
-                <button class="icon-btn">
+                <button class="icon-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
-                <div class="language-selector">
-                    <i class="fas fa-flag-usa"></i>
-                    <span>EN</span>
-                </div>
+                <button class="icon-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
             </div>
+            <button class="login-btn">
+                <i class="fas fa-user"></i> Login
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <span class="match-of-day-badge">🏆 Football Match of the Day</span>
-        <h1>Free Football<br>Predictions from<br>the Experts</h1>
-        <p class="hero-subtitle">Beat the bookies today with MKPro Predictz football betting tips</p>
+    <!-- SEARCH BAR -->
+    <div id="searchBar" class="search-bar hidden">
+        <input type="text" placeholder="Search matches, teams, leagues...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
 
-        <div class="match-of-day">
-            <div class="match-teams">
-                <div class="team-card">
-                    <div class="team-logo">⚽</div>
-                    <div class="team-name">Saint Etienne</div>
-                    <div class="team-country">France</div>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> AI-POWERED PREDICTIONS
+            </div>
+            <h1>Advanced Football<br>Predictions from<br>AI & Experts</h1>
+            <p class="hero-subtitle">Join 50,000+ Users Winning Daily • 85%+ Accuracy Rate • Real-Time Analysis</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">85%</div>
+                    <div class="stat-label">Win Rate</div>
                 </div>
-                <div class="vs">V</div>
-                <div class="team-card">
-                    <div class="team-logo">⚽</div>
-                    <div class="team-name">Nice</div>
-                    <div class="team-country">France</div>
+                <div class="stat">
+                    <div class="stat-value">50K+</div>
+                    <div class="stat-label">Members</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Live Updates</div>
                 </div>
             </div>
-            <div class="match-details">
-                <div class="match-league">France: Ligue 1</div>
-                Tuesday, May 26, 2026
+
+            <button class="cta-button">
+                <i class="fas fa-play-circle"></i> Get VIP Access
+            </button>
+        </div>
+
+        <div class="match-of-day">
+            <div class="mod-header">
+                <span class="mod-badge">⭐ MATCH OF THE DAY</span>
+                <span class="mod-odds">HIGH ODDS</span>
+            </div>
+            <div class="match-teams">
+                <div class="team-card">
+                    <div class="team-logo">🇫🇷</div>
+                    <div class="team-name">Saint Etienne</div>
+                    <div class="team-rating">⭐ 7.2</div>
+                </div>
+                <div class="vs-center">
+                    <div class="vs">VS</div>
+                    <div class="match-time">21:30</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-logo">🇫🇷</div>
+                    <div class="team-name">Nice</div>
+                    <div class="team-rating">⭐ 6.8</div>
+                </div>
+            </div>
+            <div class="match-analysis">
+                <div class="analysis-item">
+                    <span>League:</span> <strong>Ligue 1 - France</strong>
+                </div>
+                <div class="analysis-item">
+                    <span>Form:</span> <strong>Saint E: W-W-D | Nice: W-D-L</strong>
+                </div>
+                <div class="analysis-item">
+                    <span>AI Prediction:</span> <strong class="prediction-ai">HOME WIN (78% Confidence)</strong>
+                </div>
+            </div>
+            <button class="view-bet-btn">View Full Analysis</button>
+        </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="quick-stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div>
+                    <h3>Streak: 12-0</h3>
+                    <p>Current Winning Streak</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                <div>
+                    <h3>89% This Month</h3>
+                    <p>May Accuracy</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-coins"></i></div>
+                <div>
+                    <h3>Avg Odds: 2.34</h3>
+                    <p>Per Prediction</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-fire"></i></div>
+                <div>
+                    <h3>124 Predictions</h3>
+                    <p>This Season</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- PREDICTIONS SECTION -->
-    <section class="predictions-section">
-        <div class="section-header">
-            <h2 class="section-title">Today Football<br>Predictions</h2>
-            <button class="see-all-btn">👁️ See All<br>Predictions</button>
+    <section class="predictions-section" id="predictions">
+        <div class="section-container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Today's Predictions</h2>
+                    <p class="section-subtitle">Real-time AI Analysis • Updated Every 5 Minutes</p>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="high">High Risk</button>
+                    <button class="filter-btn" data-filter="low">Low Risk</button>
+                    <button class="filter-btn" data-filter="vip">VIP Only</button>
+                </div>
+            </div>
+
+            <div class="predictions-container">
+                <!-- Predictions will be loaded here by JavaScript -->
+                <div class="table-header">
+                    <div>Match</div>
+                    <div>Prediction</div>
+                    <div>Odds</div>
+                    <div>Confidence</div>
+                    <div>Action</div>
+                </div>
+                <div id="predictionsTable"></div>
+            </div>
         </div>
+    </section>
 
-        <div class="predictions-container">
-            <!-- TABLE HEADER -->
-            <div class="table-header">
-                <div>Home Team</div>
-                <div>Away Team</div>
-                <div>Odds</div>
-                <div>Tip</div>
+    <!-- EXPERT PROFILES -->
+    <section class="experts-section" id="experts">
+        <div class="section-container">
+            <h2 class="section-title">Our Expert Analysts</h2>
+            <div class="experts-grid">
+                <div class="expert-card">
+                    <div class="expert-avatar">👨‍💼</div>
+                    <h3>Dr. Marcus Johnson</h3>
+                    <p class="expert-role">Football Analytics Expert</p>
+                    <div class="expert-stats">
+                        <span>📊 87% Win Rate</span>
+                        <span>📈 2,450 Predictions</span>
+                    </div>
+                    <p class="expert-bio">15+ years in sports analytics and machine learning</p>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="expert-card">
+                    <div class="expert-avatar">👩‍💼</div>
+                    <h3>Sarah Williams</h3>
+                    <p class="expert-role">Live Match Strategist</p>
+                    <div class="expert-stats">
+                        <span>📊 84% Win Rate</span>
+                        <span>📈 1,890 Predictions</span>
+                    </div>
+                    <p class="expert-bio">Former pro analyst for top European leagues</p>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="expert-card">
+                    <div class="expert-avatar">👨‍🔬</div>
+                    <h3>Alex Chen</h3>
+                    <p class="expert-role">Data Scientist</p>
+                    <div class="expert-stats">
+                        <span>📊 91% Win Rate</span>
+                        <span>📈 3,120 Predictions</span>
+                    </div>
+                    <p class="expert-bio">AI specialist building predictive models</p>
+                    <button class="follow-btn">Follow</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS & HISTORY -->
+    <section class="stats-section" id="stats">
+        <div class="section-container">
+            <h2 class="section-title">Performance Analytics</h2>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <h3>Monthly Performance</h3>
+                    <div class="mini-chart">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <h3>Win Rate by League</h3>
+                    <div class="league-list">
+                        <div class="league-item">
+                            <span>Premier League</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 89%;"></div>
+                            </div>
+                            <span>89%</span>
+                        </div>
+                        <div class="league-item">
+                            <span>La Liga</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 84%;"></div>
+                            </div>
+                            <span>84%</span>
+                        </div>
+                        <div class="league-item">
+                            <span>Serie A</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 82%;"></div>
+                            </div>
+                            <span>82%</span>
+                        </div>
+                        <div class="league-item">
+                            <span>Ligue 1</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 87%;"></div>
+                            </div>
+                            <span>87%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- PREDICTIONS ROWS -->
-            <div class="prediction-row">
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Réal Bamako</div>
-                </div>
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Derby Academ</div>
-                </div>
-                <div class="odds">1.95</div>
-                <div class="prediction-tip tip-home-dc">HOME DC</div>
+            <div class="recent-predictions">
+                <h3>Recent Predictions History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Match</th>
+                            <th>Prediction</th>
+                            <th>Result</th>
+                            <th>Odds</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTable">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </section>
 
-            <div class="prediction-row">
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Parma U20</div>
-                </div>
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Cesena U20</div>
-                </div>
-                <div class="odds">1.62</div>
-                <div class="prediction-tip tip-home-win">HOME WIN</div>
-            </div>
+    <!-- VIP SUBSCRIPTION PLANS -->
+    <section class="vip-section" id="vip">
+        <div class="section-container">
+            <h2 class="section-title">Subscription Plans</h2>
+            <p class="section-subtitle">Choose Your Perfect Plan</p>
 
-            <div class="prediction-row">
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Comerciantes I</div>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <p class="plan-price">$0<span>/month</span></p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 5 Daily Predictions</li>
+                        <li><i class="fas fa-check"></i> Basic Analysis</li>
+                        <li><i class="fas fa-times"></i> Expert Tips</li>
+                        <li><i class="fas fa-times"></i> Live Alerts</li>
+                        <li><i class="fas fa-times"></i> Advanced Analytics</li>
+                    </ul>
+                    <button class="plan-btn">Get Started</button>
                 </div>
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Deportivo Garc</div>
-                </div>
-                <div class="odds">2.35</div>
-                <div class="prediction-tip tip-home-dc">HOME DC</div>
-            </div>
 
-            <div class="prediction-row">
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Ind. Juniors</div>
+                <div class="plan-card premium">
+                    <div class="plan-badge">POPULAR</div>
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <p class="plan-price">$9.99<span>/month</span></p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Unlimited Predictions</li>
+                        <li><i class="fas fa-check"></i> Full AI Analysis</li>
+                        <li><i class="fas fa-check"></i> Expert Tips</li>
+                        <li><i class="fas fa-check"></i> Live Alerts</li>
+                        <li><i class="fas fa-times"></i> Advanced Analytics</li>
+                    </ul>
+                    <button class="plan-btn primary">Subscribe Now</button>
                 </div>
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">9 de Octubre</div>
-                </div>
-                <div class="odds">1.70</div>
-                <div class="prediction-tip tip-home-dc">HOME DC</div>
-            </div>
 
-            <div class="prediction-row">
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Miramar</div>
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Elite</h3>
+                        <p class="plan-price">$29.99<span>/month</span></p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Unlimited Everything</li>
+                        <li><i class="fas fa-check"></i> Premium AI Analysis</li>
+                        <li><i class="fas fa-check"></i> VIP Expert Tips</li>
+                        <li><i class="fas fa-check"></i> Priority Alerts</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> 1-on-1 Coaching</li>
+                    </ul>
+                    <button class="plan-btn">Upgrade to Elite</button>
                 </div>
-                <div class="team-info">
-                    <div class="team-info-logo">⚽</div>
-                    <div class="team-info-name">Fenix</div>
-                </div>
-                <div class="odds">2.38</div>
-                <div class="prediction-tip tip-away-dc">AWAY DC</div>
             </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="section-container">
+            <h2 class="section-title">What Our Users Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"MKPro Predictz helped me win €2,400 in just 2 weeks! The accuracy is incredible."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div>
+                            <h4>John Martinez</h4>
+                            <p>Premium Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The expert analysis is on another level. I've never seen predictions this accurate before!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div>
+                            <h4>Lisa Thompson</h4>
+                            <p>Elite Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Best investment ever. The ROI has been exceptional with their VIP predictions."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👤</div>
+                        <div>
+                            <h4>Ahmed Hassan</h4>
+                            <p>Elite Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Join 50,000+ Winning Bettors</h2>
+            <p>Start Getting Daily AI Predictions • Get Your First VIP Tip Free</p>
+            <button class="cta-button large">
+                <i class="fas fa-rocket"></i> Start Free Trial
+            </button>
         </div>
     </section>
 
@@ -594,15 +414,27 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About</h3>
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-                <a href="#">Careers</a>
+                <h3><i class="fas fa-brain"></i> MKPro Predictz</h3>
+                <p>AI-powered football predictions with 85%+ accuracy rate.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#predictions">Predictions</a>
+                <a href="#experts">Experts</a>
+                <a href="#vip">Plans</a>
             </div>
             <div class="footer-section">
                 <h3>Support</h3>
                 <a href="#">Help Center</a>
                 <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
                 <a href="#">Feedback</a>
             </div>
             <div class="footer-section">
@@ -610,11 +442,17 @@
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
                 <a href="#">Disclaimer</a>
+                <a href="#">Responsible Gaming</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MKPro Predictz. All rights reserved. Predictions are for entertainment purposes only.</p>
+            <p>&copy; 2026 MKPro Predictz. All rights reserved. Predictions for entertainment only.</p>
         </div>
     </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
