@@ -19,14 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // Event Listeners
 function initializeEventListeners() {
     // Search toggle
-    searchBtn.addEventListener('click', () => {
-        searchBar.classList.toggle('hidden');
-    });
+    if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+    }
 
     // Menu toggle
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Filter buttons
     filterBtns.forEach(btn => {
@@ -48,6 +52,8 @@ function initializeEventListeners() {
 
 // Render Predictions
 function renderPredictions(filter) {
+    if (!predictionsTable) return;
+    
     predictionsTable.innerHTML = '';
     
     const filtered = predictions.filter(pred => {
@@ -58,20 +64,24 @@ function renderPredictions(filter) {
         return true;
     });
 
-    filtered.forEach(pred => {
+    filtered.forEach((pred, index) => {
         const row = document.createElement('div');
         row.className = 'prediction-row';
+        row.style.animationDelay = `${index * 0.1}s`;
         
         const tipClass = getTipClass(pred.prediction);
         
         row.innerHTML = `
             <div class="team-info">
                 <span class="team-info-logo">⚽</span>
-                <span class="team-info-name">${pred.home}</span>
+                <div>
+                    <div class="team-info-name">${pred.home}</div>
+                    <div style="font-size: 11px; color: #888;">${pred.league}</div>
+                </div>
             </div>
             <div class="team-info">
                 <span class="team-info-logo">⚽</span>
-                <span class="team-info-name">${pred.away}</span>
+                <div class="team-info-name">${pred.away}</div>
             </div>
             <div class="odds">${pred.odds}</div>
             <div class="confidence">
@@ -101,6 +111,8 @@ function getTipClass(prediction) {
 
 // Render History
 function renderHistory() {
+    if (!historyTable) return;
+    
     historyTable.innerHTML = '';
     
     history.forEach(item => {
@@ -110,7 +122,7 @@ function renderHistory() {
         row.innerHTML = `
             <td>${item.date}</td>
             <td>${item.match}</td>
-            <td><span class="prediction-tip ${item.prediction === 'HOME WIN' ? 'tip-home' : 'tip-draw'}">${item.prediction}</span></td>
+            <td><span class="prediction-tip ${item.prediction === 'HOME WIN' ? 'tip-home' : item.prediction === 'DRAW' ? 'tip-draw' : 'tip-away'}">${item.prediction}</span></td>
             <td><span class="${isWin ? 'result-win' : 'result-loss'}">${item.result}</span></td>
             <td>${item.odds}</td>
         `;
@@ -124,53 +136,64 @@ function setupChart() {
     const ctx = document.getElementById('performanceChart');
     if (!ctx) return;
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
-            datasets: [{
-                label: 'Win Rate %',
-                data: [82, 85, 83, 87, 89],
-                borderColor: '#ff9800',
-                backgroundColor: 'rgba(255, 152, 0, 0.1)',
-                fill: true,
-                tension: 0.4,
-                pointBackgroundColor: '#ff9800',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointRadius: 5
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
+    try {
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+                datasets: [{
+                    label: 'Win Rate %',
+                    data: performance.monthly,
+                    borderColor: '#ff9800',
+                    backgroundColor: 'rgba(255, 152, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#ff9800',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
             },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        color: '#999'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 },
-                x: {
-                    ticks: {
-                        color: '#999'
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: '#999',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
                     },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
+                    x: {
+                        ticks: {
+                            color: '#999',
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    } catch (e) {
+        console.log('Chart.js not loaded');
+    }
 }
 
 // Smooth Scroll
@@ -204,7 +227,7 @@ const observer = new IntersectionObserver(entries => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.prediction-row, .expert-card, .plan-card').forEach(el => {
+document.querySelectorAll('.prediction-row, .expert-card, .plan-card, .testimonial-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'all 0.5s ease';
@@ -214,15 +237,15 @@ document.querySelectorAll('.prediction-row, .expert-card, .plan-card').forEach(e
 // Follow button functionality
 document.querySelectorAll('.follow-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-        this.textContent = this.textContent === 'Follow' ? 'Following' : 'Follow';
-        this.style.opacity = this.textContent === 'Following' ? '0.7' : '1';
+        this.textContent = this.textContent === 'Follow' ? 'Following ✓' : 'Follow';
+        this.style.opacity = this.textContent === 'Following ✓' ? '0.7' : '1';
     });
 });
 
 // CTA Button
 document.querySelectorAll('.cta-button').forEach(btn => {
     btn.addEventListener('click', () => {
-        alert('Welcome to MKPro Predictz PRO! Starting your free trial...');
+        window.location.href = '#vip';
     });
 });
 
@@ -230,23 +253,43 @@ document.querySelectorAll('.cta-button').forEach(btn => {
 document.querySelectorAll('.plan-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const planName = this.closest('.plan-card').querySelector('h3').textContent;
-        alert(`You selected ${planName} plan!`);
-    });
-});
-
-// Action buttons in predictions
-document.querySelectorAll('.action-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        alert('View details for this prediction');
+        alert(`🎉 Thank you for choosing ${planName} plan!\n\nYou will be redirected to payment...`);
     });
 });
 
 // Notification button
 document.getElementById('notificationBtn').addEventListener('click', () => {
-    alert('You have 3 new predictions available!\n\n✓ Manchester United vs Arsenal - HOME WIN (78%)\n✓ Bayern Munich vs Dortmund - HOME WIN (85%)\n✓ PSG vs Marseille - HOME WIN (88%)');
+    alert('📬 YOU HAVE 3 NEW PREDICTIONS!\n\n✓ Manchester United vs Arsenal - HOME WIN (85%)\n✓ Bayern Munich vs Dortmund - HOME WIN (88%)\n✓ PSG vs Marseille - HOME WIN (92%)\n\n⭐ All VIP Exclusive!');
 });
 
 // Login button
 document.querySelector('.login-btn').addEventListener('click', () => {
-    alert('Login functionality would be implemented here');
+    alert('🔐 Login functionality would be implemented here\n\nUse this space to integrate your auth system');
 });
+
+// View bet button
+document.querySelectorAll('.view-bet-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        alert('📊 MATCH ANALYSIS\n\nTeam Form | Head to Head | Betting Markets | Expert Tips\n\nThis would show detailed analysis...');
+    });
+});
+
+// Search functionality
+const searchInput = document.querySelector('.search-bar input');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        if (query.length > 0) {
+            const results = predictions.filter(p => 
+                p.home.toLowerCase().includes(query) || 
+                p.away.toLowerCase().includes(query)
+            );
+            console.log(`Found ${results.length} matches for "${query}"`);
+        }
+    });
+}
+
+// Log initialization
+console.log('%c🚀 MKPro Predictz PRO loaded successfully!', 'color: #ff9800; font-size: 16px; font-weight: bold;');
+console.log('%c📊 ' + predictions.length + ' predictions loaded', 'color: #4caf50; font-size: 12px;');
+console.log('%c📈 ' + history.length + ' historical results loaded', 'color: #4caf50; font-size: 12px;');
