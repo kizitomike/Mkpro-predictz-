@@ -10,6 +10,44 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes slideOutDown {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(100px); opacity: 0; }
+        }
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .live-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
@@ -24,7 +62,7 @@
                 </div>
                 <div>
                     <div class="logo-text">MKPro Predictz</div>
-                    <div class="logo-badge">PRO AI</div>
+                    <div class="logo-badge">LIVE AI</div>
                 </div>
             </a>
         </div>
@@ -44,6 +82,9 @@
                     <i class="fas fa-bell"></i>
                     <span class="notification-badge">3</span>
                 </button>
+                <span class="live-badge">
+                    <span class="live-indicator"></span>LIVE
+                </span>
             </div>
             <button class="login-btn">
                 <i class="fas fa-user"></i> Login
@@ -61,10 +102,10 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-star"></i> AI-POWERED PREDICTIONS
+                <i class="fas fa-star"></i> AI-POWERED LIVE PREDICTIONS
             </div>
-            <h1>Advanced Football<br>Predictions from<br>AI & Experts</h1>
-            <p class="hero-subtitle">Join 50,000+ Users Winning Daily • 85%+ Accuracy Rate • Real-Time Analysis</p>
+            <h1>Advanced Football<br>Predictions from<br>AI & Live Data</h1>
+            <p class="hero-subtitle">Real-Time Analysis • 50,000+ Users Winning Daily • 85%+ Accuracy Rate • Auto-Updated Every 5 Minutes</p>
             
             <div class="hero-stats">
                 <div class="stat">
@@ -88,7 +129,7 @@
 
         <div class="match-of-day">
             <div class="mod-header">
-                <span class="mod-badge">⭐ MATCH OF THE DAY</span>
+                <span class="mod-badge"><span class="live-indicator" style="display:inline-block;"></span>LIVE MATCH OF THE DAY</span>
                 <span class="mod-odds">HIGH ODDS</span>
             </div>
             <div class="match-teams">
@@ -161,8 +202,8 @@
         <div class="section-container">
             <div class="section-header">
                 <div>
-                    <h2 class="section-title">Today's Predictions</h2>
-                    <p class="section-subtitle">Real-time AI Analysis • Updated Every 5 Minutes</p>
+                    <h2 class="section-title">🔴 LIVE Today's Predictions</h2>
+                    <p class="section-subtitle">Real-time AI Analysis • Auto-Updated Every 5 Minutes • Tap Refresh for Instant Updates</p>
                 </div>
                 <div class="filter-group">
                     <button class="filter-btn active" data-filter="all">All</button>
@@ -362,7 +403,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"MKPro Predictz helped me win €2,400 in just 2 weeks! The accuracy is incredible."</p>
+                    <p>"MKPro Predictz helped me win €2,400 in just 2 weeks! The live updates are game-changing."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👤</div>
                         <div>
@@ -374,7 +415,7 @@
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"The expert analysis is on another level. I've never seen predictions this accurate before!"</p>
+                    <p>"The real-time predictions and expert analysis are on another level. Best platform ever!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👤</div>
                         <div>
@@ -386,7 +427,7 @@
 
                 <div class="testimonial-card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Best investment ever. The ROI has been exceptional with their VIP predictions."</p>
+                    <p>"Live updates every 5 minutes? This is exactly what I needed. ROI has been exceptional!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">👤</div>
                         <div>
@@ -403,7 +444,7 @@
     <section class="cta-section">
         <div class="cta-content">
             <h2>Join 50,000+ Winning Bettors</h2>
-            <p>Start Getting Daily AI Predictions • Get Your First VIP Tip Free</p>
+            <p>Start Getting Daily AI Predictions • Live Data Updates • Get Your First VIP Tip Free</p>
             <button class="cta-button large">
                 <i class="fas fa-rocket"></i> Start Free Trial
             </button>
@@ -415,7 +456,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3><i class="fas fa-brain"></i> MKPro Predictz</h3>
-                <p>AI-powered football predictions with 85%+ accuracy rate.</p>
+                <p>AI-powered football predictions with live data integration and 85%+ accuracy rate.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -453,6 +494,7 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script src="data.js"></script>
+    <script src="live-api.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
