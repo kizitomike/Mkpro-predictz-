@@ -1,144 +1,25 @@
 // Predictions Data
 const predictions = [
     {
-        home: "Manchester United",
-        away: "Arsenal",
-        prediction: "HOME WIN",
-        odds: 2.45,
-        confidence: 85,
-        risk: "low",
-        vip: false,
-        league: "Premier League"
-    },
-    {
-        home: "Bayern Munich",
-        away: "Dortmund",
-        prediction: "HOME WIN",
+        home: "Crystal Palace",
+        away: "Rayo Vallecano",
+        prediction: "BTTS & Over 2.5",
         odds: 1.95,
-        confidence: 88,
-        risk: "low",
-        vip: true,
-        league: "Bundesliga"
-    },
-    {
-        home: "PSG",
-        away: "Marseille",
-        prediction: "HOME WIN",
-        odds: 1.72,
-        confidence: 92,
-        risk: "low",
-        vip: true,
-        league: "Ligue 1"
-    },
-    {
-        home: "Real Madrid",
-        away: "Barcelona",
-        prediction: "DRAW",
-        odds: 3.25,
-        confidence: 72,
-        risk: "high",
-        vip: false,
-        league: "La Liga"
-    },
-    {
-        home: "Liverpool",
-        away: "Chelsea",
-        prediction: "HOME WIN",
-        odds: 2.15,
-        confidence: 79,
+        confidence: 82,
         risk: "low",
         vip: false,
-        league: "Premier League"
-    },
-    {
-        home: "Juventus",
-        away: "AC Milan",
-        prediction: "AWAY WIN",
-        odds: 2.80,
-        confidence: 75,
-        risk: "high",
-        vip: false,
-        league: "Serie A"
-    },
-    {
-        home: "Tottenham",
-        away: "Manchester City",
-        prediction: "AWAY WIN",
-        odds: 1.88,
-        confidence: 86,
-        risk: "low",
-        vip: true,
-        league: "Premier League"
-    },
-    {
-        home: "Atletico Madrid",
-        away: "Valencia",
-        prediction: "HOME WIN",
-        odds: 2.05,
-        confidence: 81,
-        risk: "low",
-        vip: false,
-        league: "La Liga"
+        league: "Europe - Conference League"
     }
 ];
 
 // History Data
 const history = [
     {
-        date: "2026-05-24",
-        match: "Manchester Utd vs Arsenal",
-        prediction: "HOME WIN",
-        result: "WIN",
-        odds: 2.45
-    },
-    {
-        date: "2026-05-24",
-        match: "Bayern Munich vs Dortmund",
-        prediction: "HOME WIN",
-        result: "WIN",
+        date: "2026-05-27",
+        match: "Crystal Palace vs Rayo Vallecano",
+        prediction: "BTTS & Over 2.5",
+        result: "PENDING",
         odds: 1.95
-    },
-    {
-        date: "2026-05-23",
-        match: "PSG vs Marseille",
-        prediction: "HOME WIN",
-        result: "WIN",
-        odds: 1.72
-    },
-    {
-        date: "2026-05-23",
-        match: "Liverpool vs Chelsea",
-        prediction: "HOME WIN",
-        result: "WIN",
-        odds: 2.15
-    },
-    {
-        date: "2026-05-22",
-        match: "Juventus vs AC Milan",
-        prediction: "DRAW",
-        result: "WIN",
-        odds: 2.50
-    },
-    {
-        date: "2026-05-22",
-        match: "Real Madrid vs Barcelona",
-        prediction: "HOME WIN",
-        result: "WIN",
-        odds: 2.35
-    },
-    {
-        date: "2026-05-21",
-        match: "Tottenham vs Man City",
-        prediction: "AWAY WIN",
-        result: "WIN",
-        odds: 1.88
-    },
-    {
-        date: "2026-05-21",
-        match: "Atletico Madrid vs Valencia",
-        prediction: "HOME WIN",
-        result: "WIN",
-        odds: 2.05
     }
 ];
 
@@ -243,5 +124,6 @@ const leagueLogo = {
     "La Liga": "🇪🇸",
     "Serie A": "🇮🇹",
     "Ligue 1": "🇫🇷",
-    "Bundesliga": "🇩🇪"
+    "Bundesliga": "🇩🇪",
+    "Europe - Conference League": "🇪🇺"
 };
